@@ -8,26 +8,34 @@
     </v-app-bar>
 
     <v-main>
-      <v-textarea v-model="consl" label="Вывод"></v-textarea>
+      <v-list>
+        <v-subheader>Блютуз устройства</v-subheader>
+        <v-list-item-group v-model="selected_device" color="primary">
+          <v-list-item v-for="(item, i) in devices" :key="i">
+            <v-list-item-content>
+              <v-list-item-title v-text="item.name"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import { list } from 'C:/Users/User/Documents/vuecli_projs/karier_kanatka/src-cordova/plugins/cordova-plugin-bluetooth-serial/www/bluetoothSerial.js';
+import { list } from 'C:/vue_cli_projs/karier_kanatka/src-cordova/plugins/cordova-plugin-bluetooth-serial/www/bluetoothSerial.js';
 
 export default {
   name: 'App',
 
   data: () => ({
-    consl: ''
+    selected_device: null,
+    devices: null
   }),
   methods: {
     clicklist() {
       list((devices) => {
-        devices.forEach((device) => {
-          this.consl += device.id;
-        })
+        this.devices = devices;
       })
     }
   }

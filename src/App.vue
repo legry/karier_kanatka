@@ -1,28 +1,35 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+
+      <v-spacer></v-spacer>
+
+      <v-btn @click="clicklist" text>list</v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <v-textarea v-model="consl" label="Вывод"></v-textarea>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { list } from 'C:/Users/User/Documents/vuecli_projs/karier_kanatka/src-cordova/plugins/cordova-plugin-bluetooth-serial/www/bluetoothSerial.js';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  data: () => ({
+    consl: ''
+  }),
+  methods: {
+    clicklist() {
+      list((devices) => {
+        devices.forEach((device) => {
+          this.consl += device.id;
+        })
+      })
+    }
+  }
+};
+</script>

@@ -24,7 +24,6 @@
     "cordova-serve-osx": "cross-env CORDOVA_PLATFORM=osx vue-cli-service cordova-serve-osx"
   },
   "dependencies": {
-    "cordova-plugin-bluetooth-serial": "^0.4.7",
     "core-js": "^3.8.3",
     "vue": "^2.6.14",
     "vuetify": "^2.6.0"

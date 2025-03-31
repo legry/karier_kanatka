@@ -7,6 +7,11 @@
     </author>
     <!-- this hook will point your config.xml to the DevServer on Serve -->
     <hook type="after_prepare" src="../node_modules/vue-cli-plugin-cordova/serve-config-hook.js" />
+<<<<<<< HEAD
+=======
+    <!-- this hook will point your config.xml to the DevServer on Serve -->
+    <hook type="after_prepare" src="../node_modules/vue-cli-plugin-cordova/serve-config-hook.js" />
+>>>>>>> 05894293c65ae74fba8cbe1376948882e6e591e6
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

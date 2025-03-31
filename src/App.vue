@@ -1,5 +1,6 @@
 <template>
   <v-app>
+<<<<<<< HEAD
     <v-app-bar app color="cyan">
       <v-toolbar-title class="cyan--text text--darken-4">{{ app_bar_title }}</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -128,11 +129,32 @@
       <v-snackbar v-model="scs_snk" color="success">
         {{ scs_snk_ms1 }} <strong>{{ scs_snk_ms2 }}</strong>
       </v-snackbar>
+=======
+    <v-app-bar app color="primary" dark>
+
+      <v-spacer></v-spacer>
+
+      <v-btn @click="clicklist" text>list</v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <v-list>
+        <v-subheader>Блютуз устройства</v-subheader>
+        <v-list-item-group v-model="selected_device" color="primary">
+          <v-list-item v-for="(item, i) in devices" :key="i">
+            <v-list-item-content>
+              <v-list-item-title v-text="item.name"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+>>>>>>> 05894293c65ae74fba8cbe1376948882e6e591e6
     </v-main>
   </v-app>
 </template>
 
 <script>
+<<<<<<< HEAD
 import {
   mdiBluetoothConnect, mdiPlus, mdiMinus, mdiRotateLeft, mdiRotateRight,
   mdiGestureTap, mdiSpellcheck, mdiHandFrontLeftOutline, mdiPower, mdiArrowLeft, mdiClose, mdiArrowRight, mdiThemeLightDark
@@ -140,10 +162,15 @@ import {
 import permissions from '../src-cordova/plugins/cordova-plugin-android-permissions/www/permissions.js';
 import { enable, discoverUnpaired, list } from '../src-cordova/plugins/cordova-plugin-bluetooth-classic-serial-port/www/bluetoothClassicSerial.js';
 import { connect, isConnected, disconnect, write, subscribe } from '../src-cordova/plugins/cordova-plugin-bluetooth-serial/www/bluetoothSerial.js';
+=======
+import { list } from 'C:/vue_cli_projs/karier_kanatka/src-cordova/plugins/cordova-plugin-bluetooth-serial/www/bluetoothSerial.js';
+
+>>>>>>> 05894293c65ae74fba8cbe1376948882e6e591e6
 export default {
   name: 'App',
 
   data: () => ({
+<<<<<<< HEAD
     blCnn: mdiBluetoothConnect,
     plus: mdiPlus,
     minus: mdiMinus,
@@ -435,6 +462,16 @@ export default {
     },
     on_theme_sel() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+=======
+    selected_device: null,
+    devices: null
+  }),
+  methods: {
+    clicklist() {
+      list((devices) => {
+        this.devices = devices;
+      })
+>>>>>>> 05894293c65ae74fba8cbe1376948882e6e591e6
     }
   }
 };
